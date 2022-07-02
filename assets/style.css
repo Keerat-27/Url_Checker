@@ -1,0 +1,13 @@
+.green,.red{
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+    z-index: 1;
+    content: "";
+}
+.green{
+    background-color: #00ff00;
+}
+.red{
+    background-color: #ff0000;
+}
