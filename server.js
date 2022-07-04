@@ -22,7 +22,7 @@ function isValidHttpUrl(string) {
 }
 
 async function fetchURLStatus(urlArray, linksData, callback) {
-  var id, urlName, statusCode, statusText;
+  var id, ssl , urlName, statusCode, statusText;
   const date = new Date();
   var jsonString = {};
   urlArray = urlArray.split("\n");
@@ -30,22 +30,34 @@ async function fetchURLStatus(urlArray, linksData, callback) {
     if (isValidHttpUrl(urlArray[pos])) {
       await fetch(urlArray[pos], { method: "GET" })
         .then((res) => {
+          
           id = "u" + pos;
+          ssl = "Ok";
           urlName = urlArray[pos];
           statusCode = res.status;
           statusText = res.statusText;
-          // console.log
+          if(statusCode === 404) {
+              ssl = "Not Found";
+          }
         })
         .catch((error) => {
+          
+          if (error.code === 'CERT_INVALID') {
+              ssl = "Invalid";
+          }
+          else if (error.code === 'CERT_HAS_EXPIRED') {
+              ssl = "Expired";
+          }
           id = "u" + pos;
           urlName = urlArray[pos];
           statusCode = "Invalid URL";
-          statusText = "The URL was invalid / not found";
+          statusText = "Invalid / Not Found";
         });
       jsonString = {
         ...jsonString,
         [id]: {
           url: urlName,
+          ssl : ssl,
           status: statusCode,
           statusText: statusText,
           date: date,
