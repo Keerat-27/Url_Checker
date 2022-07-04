@@ -1,4 +1,3 @@
-
 var tBody = document.getElementById("table-content");
 
 function addItem(event) {
@@ -8,9 +7,10 @@ function addItem(event) {
         let count = 1;
         let nameList = ["Jmc","Sggscc","Miranda House","Shivaji College","ANDC","Aurobindo College","Gargi College","Kalindi College","Vasanta College","Dyal Singh College","Holy Family College"
         ,"Hansraj College","Placement Cell Hansraj","Hansraj Faculty","Hansraj Alumni","SRCC Smartprof","LSR Smartprof","Lady Reading School","LAHDC SSRB","Ladakh Heli Services","Langham Capital"
-        ,"Delhi EV","Delhi EV Incentive","Ladakh Connect","LEH Permit","Sakoon","Vaishno Devi","District Udham Nagar","Ladakh EYE","Motor Vehicle Department"];
+        ,"Delhi EV","Delhi EV Incentive","Ladakh Connect","LEH Permit","Sakoon","Vaishno Devi","District Udham Nagar","Ladakh EYE","Motor Vehicle Department","Bad SSL"];
+
         for (var items in linksDataObj) {
-            let { url, status, statusText, date } = linksDataObj[`${items}`];
+            let { url, ssl , status, statusText, date } = linksDataObj[`${items}`];
             dateObj = new Date(date).toLocaleString("en-US");
             if(status == 200)
                 divElement = `<div class= "green"></div>`
@@ -18,10 +18,10 @@ function addItem(event) {
                 divElement = `<div class= "red"></div> ${status}`
 
             tBody.innerHTML += `<tr>
-            <!-- <th scope="row"></th> -->
             <td>${count++}</td>
             <td>${nameList[count-2]}</td>
             <td>${url}</td>
+            <td>${ssl}</td>
             <td>${statusText}</td>
             <td>${divElement}</td>   
             <td>${dateObj}</td>
