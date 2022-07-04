@@ -22,7 +22,7 @@ function addItem(event) {
         "Hansraj MHRFDC",
         "Hansraj HRCAA",
         "SRCC Smartprof",
-        "LSR Smartp",
+        "LSR Smartprof",
         "Lady Reading Health School",
         "LAHDC SSRB",
         "Ladakh Heli Services",
