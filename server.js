@@ -32,7 +32,7 @@ async function fetchURLStatus(urlArray, linksData, callback) {
         .then((res) => {
           
           id = "u" + pos;
-          ssl = "Ok";
+          ssl = "OK";
           urlName = urlArray[pos];
           statusCode = res.status;
           statusText = res.statusText;
