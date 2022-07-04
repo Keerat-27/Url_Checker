@@ -5,9 +5,38 @@ function addItem(event) {
         let linksDataObj = JSON.parse(linksData);
         let divElement = '';
         let count = 1;
-        let nameList = ["Jmc","Sggscc","Miranda House","Shivaji College","ANDC","Aurobindo College","Gargi College","Kalindi College","Vasanta College","Dyal Singh College","Holy Family College"
-        ,"Hansraj College","Placement Cell Hansraj","Hansraj Faculty","Hansraj Alumni","SRCC Smartprof","LSR Smartprof","Lady Reading School","LAHDC SSRB","Ladakh Heli Services","Langham Capital"
-        ,"Delhi EV","Delhi EV Incentive","Ladakh Connect","LEH Permit","Sakoon","Vaishno Devi","District Udham Nagar","Ladakh EYE","Motor Vehicle Department","Bad SSL"];
+        let nameList = [
+        "JMC",
+        "SGGSCC",
+        "Miranda House",
+        "Shivaji College",
+        "ANDC",
+        "Aurobindo College (Evening)",
+        "Gargi College",
+        "Kalindi College",
+        "Vasanta College",
+        "Dyal Singh College",
+        "Holy Family College",
+        "Hansraj College",
+        "Placement Cell Hansraj",
+        "Hansraj MHRFDC",
+        "Hansraj HRCAA",
+        "SRCC Smartprof",
+        "LSR Smartp",
+        "Lady Reading Health School",
+        "LAHDC SSRB",
+        "Ladakh Heli Services",
+        "Langham Capital",
+        "Delhi EV Charger Subsidy",
+        "Delhi EV Vehicle Incentive",
+        "Ladakh Connect",
+        "Leh Inner Line Permit",
+        "Sakoon",
+        "SMVDSB Protocol Booking & Rent Collection",
+        "112 Udham Singh Nagar",
+        "Ladakh EYE",
+        "Ladakh MVD & Inventory Portal"
+    ];
 
         for (var items in linksDataObj) {
             let { url, ssl , status, statusText, date } = linksDataObj[`${items}`];
