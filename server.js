@@ -24,7 +24,7 @@ function isValidHttpUrl(string) {
 async function fetchURLStatus(urlJSON, linksData, callback) {
   var id, ssl, statusCode, statusText;
   let i = 0;
-  const date = new Date().toLocaleString("en-US");
+  const date = new Date().toLocaleString("en-US", {timeZone: 'Asia/Kolkata'});
   var jsonString = {};
   urlJSON = JSON.parse(urlJSON);
   // for (let pos in urlJSON) {
