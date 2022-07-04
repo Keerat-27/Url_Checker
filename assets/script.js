@@ -1,60 +1,35 @@
-var tBody = document.getElementById("table-content");
+var tBodyCllg = document.getElementById("table-content-college");
+var tBodySmartProf = document.getElementById("table-content-smartprof");
+var tBodyGovt = document.getElementById("table-content-govt");
 
 function addItem(event) {
     if (typeof (event) == 'string' && event !== "") {
         let linksDataObj = JSON.parse(linksData);
         let divElement = '';
         let count = 1;
-        let nameList = [
-        "JMC",
-        "SGGSCC",
-        "Miranda House",
-        "Shivaji College",
-        "ANDC",
-        "Aurobindo College (Evening)",
-        "Gargi College",
-        "Kalindi College",
-        "Vasanta College",
-        "Dyal Singh College",
-        "Holy Family College",
-        "Hansraj College",
-        "Placement Cell Hansraj",
-        "Hansraj MHRFDC",
-        "Hansraj HRCAA",
-        "SRCC Smartprof",
-        "LSR Smartprof",
-        "Lady Reading Health School",
-        "LAHDC SSRB",
-        "Ladakh Heli Services",
-        "Langham Capital",
-        "Delhi EV Charger Subsidy",
-        "Delhi EV Vehicle Incentive",
-        "Ladakh Connect",
-        "Leh Inner Line Permit",
-        "Sakoon",
-        "SMVDSB Protocol Booking & Rent Collection",
-        "112 Udham Singh Nagar",
-        "Ladakh EYE",
-        "Ladakh MVD & Inventory Portal"
-    ];
-
-        for (var items in linksDataObj) {
-            let { url, ssl , status, statusText, date } = linksDataObj[`${items}`];
-            dateObj = new Date(date).toLocaleString("en-US");
-            if(status == 200)
+        for (var urlLinks in linksDataObj) {
+            let { ssl, status, statusText, date, category, title } = linksDataObj[`${urlLinks}`];
+            if (status == 200)
                 divElement = `<div class= "green"></div>`
             else
                 divElement = `<div class= "red"></div> ${status}`
 
-            tBody.innerHTML += `<tr>
+            var tableString = `<tr>
             <td>${count++}</td>
-            <td>${nameList[count-2]}</td>
-            <td>${url}</td>
+            <td>${title}</td>
+            <td>${urlLinks}</td>
             <td>${ssl}</td>
             <td>${statusText}</td>
             <td>${divElement}</td>   
-            <td>${dateObj}</td>
+            <td>${date}</td>
           </tr>`;
+            if (category == 'Govt')
+                tBodyGovt.innerHTML += tableString;
+            else if (category == 'College')
+                tBodyCllg.innerHTML += tableString;
+            else
+                tBodySmartProf.innerHTML += tableString;
+
         }
     }
 }
@@ -77,7 +52,7 @@ const readData = () => {
             width: "100%",
         }, addItem(linksData));
     }
-    
+
     xhttp.open("POST", "./read");
     xhttp.send();
 }
