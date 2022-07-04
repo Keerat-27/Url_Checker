@@ -20,7 +20,7 @@
         "category": "College"
     },
     "https://www.aurobindoe.du.ac.in/": {
-        "title": "Aurobindo College",
+        "title": "Aurobindo College (Evening)",
         "category": "College"
     },
     "https://www.gargicollege.in/": {
@@ -32,7 +32,7 @@
         "category": "College"
     },
     "https://www.vasantakfi.ac.in/": {
-        "title": "Vasant College",
+        "title": "Vasanta College",
         "category": "College"
     },
     "https://www.dsc.du.ac.in/": {
@@ -52,11 +52,11 @@
         "category": "College"
     },
     "https://www.mhrfdc.in/": {
-        "title": "Hansraj Faculty",
+        "title": "Hansraj MHRFDC",
         "category": "College"
     },
     "https://www.hrcaa.in/": {
-        "title": "Hansraj Alumni",
+        "title": "Hansraj HRCAA",
         "category": "College"
     },
     "https://ciidret.du.ac.in/": {
@@ -72,7 +72,7 @@
         "category": "SmartProf"
     },
     "https://ladyreadinghealthschool.com/": {
-        "title": "Lady Reading School",
+        "title": "Lady Reading Health School",
         "category": "Govt"
     },
     "https://www.lahdssrb.in/": {
@@ -88,11 +88,11 @@
         "category": "Govt"
     },
     "https://ev.delhi.gov.in/": {
-        "title": "Delhi EV",
+        "title": "Delhi EV Charger Subsidy",
         "category": "Govt"
     },
     "https://delhievincentive.in/": {
-        "title": "Delhi EV Incentive",
+        "title": "Delhi EV Vehicle Incentive",
         "category": "Govt"
     },
     "https://connect.ladakh.gov.in/": {
@@ -100,7 +100,7 @@
         "category": "Govt"
     },
     "https://www.lahdclehpermit.in/": {
-        "title": "LEH Permit",
+        "title": "LEH Inner Line Permit",
         "category": "Govt"
     },
     "https://www.sakoon.in/": {
@@ -108,11 +108,11 @@
         "category": "Govt"
     },
     "https://www.maavaishnodevibooking.org/shrine/": {
-        "title": "Vaishno Devi",
+        "title": "SMVDSB Protocol Booking & Rent Collection",
         "category": "Govt"
     },
     "https://www.112udn.in/login": {
-        "title": "District Udham Nagar",
+        "title": "112 Udham Singh Nagar",
         "category": "Govt"
     },
     "https://projectmonitoring.ladakh.gov.in/": {
@@ -120,7 +120,7 @@
         "category": "Govt"
     },
     "https://inventorymanagement.ladakh.gov.in/vehicle/login": {
-        "title": "Motor Vehicle Department",
+        "title": "Ladakh MVD & Inventory Portal",
         "category": "Govt"
     }
 }
