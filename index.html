@@ -9,18 +9,31 @@
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./assets/style.css">
+  <title>Mobiquel Website Checker</title>
 </head>
 
 <body>
-
-  <div class="container">
-    <div class="container">
-      <h3 class="Typography">Refresh to update values
-      </h3>
+  <div class="progress" style="height: 10px;">
+    <div class="progress-bar progress-bar-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="https://www.mobiquel.com/">
+      <img src="./assets/Mobiquel.png" width="180" height="60" class="logo" alt="Mobiquel">
+    </a>
+  </nav>
+  <div class="top_container">
+    <!-- <div class="container"> -->
+      <!-- <h3 class="Typography">Click on  -->
+        <button type="button" class="btn btn-primary" onClick="refresh()"><h3>Refresh</h3></button>
+        <!-- Button to update values -->
+      <!-- </h3> -->
+      <hr />
       <table class="table table-dark table-striped ">
         <thead>
           <tr>
             <!-- <th scope="col">Sno</th> -->
+            <th scope="col">Sno</th>
+            <th scope="col">Name</th>
             <th scope="col">Website URL</th>
             <th scope="col">Status</th>
             <th scope="col">Status Code</th>
@@ -31,8 +44,14 @@
         </tbody>
       </table>
     </div>
+    <!-- </div> -->
 </body>
 <script src="assets/script.js"></script>
+<script>
+  function refresh(){
+        window.location.reload("Refresh")
+      }
+</script>
 </body>
 
 </html>
