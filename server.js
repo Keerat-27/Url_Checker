@@ -34,6 +34,7 @@ async function fetchURLStatus(urlArray, linksData, callback) {
           urlName = urlArray[pos];
           statusCode = res.status;
           statusText = res.statusText;
+          // console.log
         })
         .catch((error) => {
           id = "u" + pos;
@@ -52,7 +53,7 @@ async function fetchURLStatus(urlArray, linksData, callback) {
       };
     }
   }
-  // console.log(jsonString)
+  
   saveOutput(jsonString);
   callback(linksData);
 }
