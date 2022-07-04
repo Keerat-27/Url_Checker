@@ -4,10 +4,30 @@
     border-radius: 100%;
     z-index: 1;
     content: "";
+    padding: 10px;
 }
 .green{
     background-color: #00ff00;
 }
 .red{
     background-color: #ff0000;
+}
+.top_container{
+    padding: 20px;
+    position: sticky;
+    width: 90%;
+    height: 200%;
+    margin: auto;
+}
+.logo{
+    padding: 10px;
+}
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: rgb(29, 219, 156);
+}
+.progress-bar ,  .progress-bar-success{
+    background-color: rgb(100, 202, 103)
 }
