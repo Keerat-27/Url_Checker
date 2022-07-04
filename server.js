@@ -21,51 +21,54 @@ function isValidHttpUrl(string) {
   return url.protocol === "http:" || url.protocol === "https:";
 }
 
-async function fetchURLStatus(urlArray, linksData, callback) {
-  var id, ssl , urlName, statusCode, statusText;
-  const date = new Date();
+async function fetchURLStatus(urlJSON, linksData, callback) {
+  var id, ssl, statusCode, statusText;
+  let i = 0;
+  const date = new Date().toLocaleString("en-US");
   var jsonString = {};
-  urlArray = urlArray.split("\n");
-  for (let pos in urlArray) {
-    if (isValidHttpUrl(urlArray[pos])) {
-      await fetch(urlArray[pos], { method: "GET" })
+  urlJSON = JSON.parse(urlJSON);
+  // for (let pos in urlJSON) {
+  //   // console.log(urlJSON[`${pos}`])
+  //   console.log(typeof (pos))
+  // }
+  for (let urlLink in urlJSON) {
+    if (isValidHttpUrl(urlLink)) {
+      await fetch(urlLink, { method: "GET" })
         .then((res) => {
-          
-          id = "u" + pos;
+          id = urlLink;
           ssl = "OK";
-          urlName = urlArray[pos];
           statusCode = res.status;
           statusText = res.statusText;
-          if(statusCode === 404) {
-              ssl = "Not Found";
+          if (statusCode === 404) {
+            ssl = "Not Found";
           }
         })
         .catch((error) => {
-          
+
           if (error.code === 'CERT_INVALID') {
-              ssl = "Invalid";
+            ssl = "Invalid";
           }
           else if (error.code === 'CERT_HAS_EXPIRED') {
-              ssl = "Expired";
+            ssl = "Expired";
           }
-          id = "u" + pos;
-          urlName = urlArray[pos];
+          id = urlLink;
           statusCode = "Invalid URL";
           statusText = "Invalid / Not Found";
         });
       jsonString = {
         ...jsonString,
         [id]: {
-          url: urlName,
-          ssl : ssl,
+          ssl: ssl,
           status: statusCode,
           statusText: statusText,
           date: date,
+          category: urlJSON[`${urlLink}`].category,
+          title: urlJSON[`${urlLink}`].title
         },
       };
     }
   }
-  
+
   saveOutput(jsonString);
   callback(linksData);
 }
@@ -88,7 +91,7 @@ const readData = async (callback) => {
     linksData = "";
     console.log("File not found or insufficient read/write permissions");
   } finally {
-    await fs.readFile("listOfLinks.txt", "utf8", function (err, data) {
+    await fs.readFile("listOfLinks.json", "utf8", function (err, data) {
       if (err) throw err;
       listOfLinks = data;
       // console.log(typeof (listOfLinks))
@@ -97,8 +100,7 @@ const readData = async (callback) => {
     });
   }
   console.log(2);
-
-  // console.log(listOfLinks)
+  console.log(listOfLinks)
 };
 
 app.post("/read", (req, res) => {
